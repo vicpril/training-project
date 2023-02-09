@@ -1,5 +1,10 @@
 {
-  "Тестовый пример": "Test example",
+  "about": "About",
+  "collapse": "",
+  "language": "Language",
+  "main": "Main",
+  "uncollapse": "",
   "Перевод": "Translate",
+  "Тестовый пример": "Test example",
   "Язык": "English"
 }
