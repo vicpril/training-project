@@ -10,16 +10,16 @@ interface LanguageSwitcherProps {
 export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
   const { className } = props
 
-  const {t, i18n} = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const toggle = () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
 
-  return ( 
-    <Button 
+  return (
+    <Button
       className={classNames('LanguageSwitcher', {}, [className])}
       onClick={toggle}
     >
-       {t('Язык')}
+      {t('Язык')}
     </Button>
 
   )

@@ -1,7 +1,7 @@
 // declaration.d.ts
 declare module '*.scss' {
-  const content: Record<string, string>;
-  export default content;
+  const content: Record<string, string>
+  export default content
 }
 // declare module '*.scss' {
 //   interface IClassNames {
@@ -17,9 +17,10 @@ declare module '*.jpeg';
 declare module '*.gif';
 
 declare module '*.svg' {
-  import React from 'react';
-  const content: React.VFC<React.SVGProps<SVGSVGElement>>;
-  export default content;
+  import React from 'react'
+
+  const content: React.VFC<React.SVGProps<SVGSVGElement>>
+  export default content
 }
 
-declare const __IS_DEV__: boolean;
+declare const __IS_DEV__: boolean
