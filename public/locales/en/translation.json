@@ -1,9 +1,12 @@
 {
   "about": "About",
   "collapse": "",
+  "error-heppened": "Some error on page",
   "language": "Language",
   "main": "Main",
   "page-not-found": "Page not found",
+  "perezagruzit-stranicu": "Reload page",
+  "throw-button": "throw a bug",
   "uncollapse": "",
   "Перевод": "Translate",
   "Тестовый пример": "Test example",
