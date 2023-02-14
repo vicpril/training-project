@@ -44,7 +44,7 @@ module.exports = {
     'i18next/no-literal-string': ['error', {
       mode: 'jsx-text-only',
       'jsx-attributes': {
-        exclude: ['theme'],
+        exclude: ['theme', 'data-testid'],
       },
     }],
     'max-len': ['error', { code: 100, ignoreComments: true, argsIgnorePattern: '^_' }],
