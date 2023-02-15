@@ -1,5 +1,5 @@
 // import { classNames } from "./classNames"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from 'shared/lib/classNames/classNames'
 
 describe('className', () => {
   test('only base Class', () => {
@@ -11,6 +11,10 @@ describe('className', () => {
   })
   test('with conditional classes', () => {
     const expectedValue = 'baseClass class1 class2 hovered'
-    expect(classNames('baseClass', {hovered: true, active: false}, ['class1', 'class2'])).toBe(expectedValue)
+    expect(classNames(
+      'baseClass',
+      { hovered: true, active: false },
+      ['class1', 'class2'],
+    )).toBe(expectedValue)
   })
 })

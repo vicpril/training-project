@@ -19,7 +19,7 @@ export const Sidebar = (props: SidebarProps) => {
   const toggleButtonText = useMemo(() => (collapsed ? t('collapse') : t('uncollapse')), [collapsed])
 
   return (
-    <div 
+    <div
       data-testid="sidebar"
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >

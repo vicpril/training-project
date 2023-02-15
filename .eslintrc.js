@@ -47,7 +47,8 @@ module.exports = {
         exclude: ['theme', 'data-testid'],
       },
     }],
-    'max-len': ['error', { code: 100, ignoreComments: true, argsIgnorePattern: '^_' }],
+    'max-len': ['error', { code: 100, ignoreComments: true }],
+    'react/destructuring-assignment': 'off',
   },
   globals: {
     __IS_DEV__: true,

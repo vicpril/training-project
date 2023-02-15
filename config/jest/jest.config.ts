@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
+import path from 'path'
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -30,7 +30,7 @@ export default {
     'node',
   ],
   moduleDirectories: [
-    'node_modules'
+    'node_modules',
   ],
   modulePaths: [
     '<rootDir>src',
@@ -40,7 +40,7 @@ export default {
     '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
   setupFilesAfterEnv: [
-    "<rootDir>config/jest/setupTests.ts"
+    '<rootDir>config/jest/setupTests.ts',
   ],
   testMatch: [
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!

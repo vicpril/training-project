@@ -13,13 +13,14 @@ export const ErrorOnPage = (props: ErrorOnPageProps) => {
   const { t } = useTranslation()
 
   const reload = () => {
+    // eslint-disable-next-line no-restricted-globals
     location.reload()
   }
 
-  return ( 
+  return (
     <div className={classNames(cls.ErrorOnPage, {}, [className])}>
-       <h1>{t('error-heppened')}</h1>
-       <Button onClick={reload}>{t('perezagruzit-stranicu')}</Button>
+      <h1>{t('error-heppened')}</h1>
+      <Button onClick={reload}>{t('perezagruzit-stranicu')}</Button>
     </div>
 
   )

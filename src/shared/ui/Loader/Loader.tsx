@@ -8,9 +8,10 @@ interface LoaderProps {
 export const Loader = (props: LoaderProps) => {
   const { className } = props
 
-  return ( 
+  return (
     <div className={classNames('lds-ripple', {}, [className])}>
-      <div></div><div></div>
+      <div />
+      <div />
     </div>
 
   )
