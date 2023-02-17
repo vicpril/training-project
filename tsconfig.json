@@ -34,7 +34,8 @@
    "allowSyntheticDefaultImports": true,
    "plugins": [
       {"name": "typescript-plugin-css-modules"}
-   ]
+   ],
+   "strictBindCallApply": true
   },
   "ts-node": {
     "compilerOptions": {
