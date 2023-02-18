@@ -9,6 +9,6 @@ export default {
 } as ComponentMeta<typeof ErrorOnPage>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ErrorOnPage> = (args) => <ErrorOnPage />
+const Template: ComponentStory<typeof ErrorOnPage> = () => <ErrorOnPage />
 
 export const Default = Template.bind({})

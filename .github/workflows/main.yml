@@ -26,19 +26,15 @@ jobs:
       run: npm install
 
     - name: RUN tests typescript
-      parallel: true
       run: npm run lint:ts
 
     - name: RUN tests styles
-      parallel: true
-      run: npm run lint:css
+      run: npm run lint:scss
 
     - name: RUN tests unit
-      parallel: true
       run: npm run test:unit
 
     - name: RUN tests UI
-      parallel: true
       run: |
         npm run build-storybook
         npm run test:ui:ci
