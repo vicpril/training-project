@@ -6,8 +6,27 @@
     transition: width 0.3s;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
+.items {
+    margin: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+
+    .icon {
+        fill: var(--inverted-primary-color);
+        margin-right: 10px;
+    }
+
+    .label {
+        opacity: 1;
+        white-space: nowrap;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
 }
 
 .switchers {
@@ -18,6 +37,27 @@
     width: 100%;
 }
 
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .label {
+        opacity: 0;
+        transition: opacity 0.2s;
+        width: 0;
+    }
+}
+
 .lang {
     margin: 20px;
+}
+
+.toggler {
+    position: absolute;
+    right: -40px;
+    bottom: 40px;
 }
