@@ -12,9 +12,9 @@
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:loki:up": "loki update --reactUri file:./storybook-static --config ./config/storybook",
-    "test:loki": "npm run build-storybook && loki test --reactUri file:./storybook-static --config ./config/storybook",
-    "test:loki:ok": "loki approve",
+    "test:ui": "npm run build-storybook && loki test --reactUri file:./storybook-static --config ./config/storybook",
+    "test:ui:ok": "loki approve",
+    "test:ui:ci": "loki test --reactUri file:./storybook-static --config ./config/storybook",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build-storybook": "build-storybook -c ./config/storybook"
   },
