@@ -27,18 +27,22 @@ jobs:
 
     - name: RUN tests typescript
       run: npm run lint:ts
+      if: always()
 
     - name: RUN tests styles
       run: npm run lint:scss
+      if: always()
 
     - name: RUN tests unit
       run: npm run test:unit
+      if: always()
 
     - name: RUN tests UI
       run: |
         npm run build-storybook
         npm run test:ui:ci
+      if: always()
 
     - name: Webpack build
-      run: |
-        npm run build:prod
+      run: npm run build:prod
+      if: always()
