@@ -8,6 +8,7 @@ import { AppRouter } from './providers/AppRouter'
 
 function App() {
   const { theme } = useTheme()
+
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
@@ -17,6 +18,8 @@ function App() {
           <AppRouter />
         </div>
       </Suspense>
+
+      <div id="modals" />
     </div>
   )
 }
