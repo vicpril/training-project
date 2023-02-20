@@ -1,7 +1,9 @@
 {
   "about": "About",
   "collapse": "",
+  "decrement": "Decrement",
   "error-heppened": "Some error on page",
+  "increment": "Increment",
   "language": "Language",
   "login": "Login",
   "main": "Main",

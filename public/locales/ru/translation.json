@@ -1,7 +1,9 @@
 {
   "about": "О сайте",
   "collapse": "Раскрыть",
+  "decrement": "Уменьшить",
   "error-heppened": "Произошла ошибка",
+  "increment": "Увеличить",
   "language": "Язык",
   "login": "Войти",
   "main": "Главная",
