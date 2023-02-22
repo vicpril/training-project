@@ -10,14 +10,21 @@ interface ModalProps {
   children?: ReactNode
   isOpen: boolean
   onClose: () => void
+  lazy?: boolean
 }
+
+const ANIMATION_SPEED = 200
 
 export const Modal = (props: ModalProps) => {
   const {
-    className, children, isOpen, onClose,
+    className, children, isOpen, onClose, lazy = true,
   } = props
 
+  const [isMounted, setIsMounted] = useState(false)
+  const [isOpened, setIsOpened] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
+  const [isOpening, setIsOpening] = useState(false)
+
   const [target, setTarget] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -25,17 +32,36 @@ export const Modal = (props: ModalProps) => {
   }, [])
 
   const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen,
+    [cls.opened]: isOpened,
+    [cls.opening]: isOpening,
     [cls.closing]: isClosing,
   }
+
+  const onOpenHandler = useCallback(() => {
+    setIsOpening(true)
+    setTimeout(() => {
+      setIsOpened(true)
+      setIsOpening(false)
+    }, ANIMATION_SPEED)
+  }, [])
 
   const onCloseHandler = useCallback(() => {
     setIsClosing(true)
     setTimeout(() => {
       onClose()
+      setIsOpened(false)
       setIsClosing(false)
-    }, 200)
+    }, ANIMATION_SPEED)
   }, [onClose])
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+      onOpenHandler()
+    } else {
+      setIsMounted(false)
+    }
+  }, [isOpen, onOpenHandler])
 
   const onEscDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape' && isOpen) {
@@ -51,6 +77,10 @@ export const Modal = (props: ModalProps) => {
 
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation()
+  }
+
+  if (lazy && !isMounted) {
+    return null
   }
 
   return (
