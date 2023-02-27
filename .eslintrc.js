@@ -56,7 +56,7 @@ module.exports = {
         exclude: ['theme', 'data-testid'],
       },
     }],
-    'max-len': ['error', { code: 100, ignoreComments: true }],
+    'max-len': ['error', { code: 110, ignoreComments: true }],
     'react/destructuring-assignment': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
@@ -64,6 +64,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
+    // 'consistent-return': 'off',
   },
   globals: {
     __IS_DEV__: true,

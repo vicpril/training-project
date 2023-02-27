@@ -14,7 +14,10 @@
   "uncollapse": "",
   "Введите username": "",
   "Введите пароль": "",
+  "Вы ввели неверный логин или пароль": "Wrong credentials",
+  "Выйти": "Logout",
   "Перевод": "Translate",
   "Тестовый пример": "Test example",
+  "Форма авторизации": "Authorization",
   "Язык": "English"
 }

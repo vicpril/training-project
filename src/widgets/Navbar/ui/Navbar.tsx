@@ -1,5 +1,8 @@
+import { userActions, getUserAuthData } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
+import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useFlag } from 'shared/lib/hooks/useFlag/useFlag'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
@@ -15,6 +18,27 @@ export const Navbar = (props: NavbarProps) => {
   const { t } = useTranslation()
 
   const { flag: isOpen, on: openModal, off: closeModal } = useFlag(false)
+
+  const authData = useSelector(getUserAuthData)
+  const dispatch = useDispatch()
+
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout())
+  }, [dispatch])
+
+  if (authData) {
+    return (
+      <div className={classNames(cls.Navbar, {}, [className])}>
+        <Button
+          theme={ButtonTheme.ClearInverted}
+          className={cls.links}
+          onClick={onLogout}
+        >
+          {t('Выйти')}
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>

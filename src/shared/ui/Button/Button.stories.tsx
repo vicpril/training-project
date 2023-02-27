@@ -6,6 +6,9 @@ import { Button, ButtonTheme } from './Button'
 export default {
   title: 'shared/Button',
   component: Button,
+  args: {
+    children: 'Button',
+  },
 } as ComponentMeta<typeof Button>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -14,31 +17,26 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Clear = Template.bind({})
 Clear.args = {
-  children: 'Button',
   theme: ButtonTheme.Clear,
 }
 
 export const ClearInverted = Template.bind({})
 ClearInverted.args = {
-  children: 'Button',
   theme: ButtonTheme.ClearInverted,
 }
 
 export const Outline = Template.bind({})
 Outline.args = {
-  children: 'Button',
   theme: ButtonTheme.Outline,
 }
 
 export const Background = Template.bind({})
 Background.args = {
-  children: 'Button',
   theme: ButtonTheme.Background,
 }
 
 export const BackgroundInverted = Template.bind({})
 BackgroundInverted.args = {
-  children: 'Button',
   theme: ButtonTheme.BackgroundInverted,
 }
 
@@ -47,4 +45,10 @@ Squared.args = {
   children: '>',
   theme: ButtonTheme.BackgroundInverted,
   square: true,
+}
+
+export const DisabledOutline = Template.bind({})
+DisabledOutline.args = {
+  theme: ButtonTheme.Outline,
+  disabled: true,
 }
