@@ -28,14 +28,11 @@ export const loginByUsername = createAsyncThunk<
 
       return response.data
     } catch (error) {
-      console.warn('🚀 ~ error', error)
+      // console.warn('🚀 ~ error', error)
       return thunkAPI.rejectWithValue('error')
     }
   },
   {
-    condition: (_, { getState }) => {
-      const { isLoading } = getState().loginForm
-      return isLoading !== true
-    },
+    condition: (_, { getState }) => getState()?.loginForm?.isLoading !== true,
   },
 )
