@@ -10,25 +10,6 @@
     margin: 20px;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-
-    .icon {
-        fill: var(--inverted-primary-color);
-        margin-right: 10px;
-    }
-
-    .label {
-        opacity: 1;
-        white-space: nowrap;
-    }
-
-    &:not(:last-child) {
-        margin-bottom: 10px;
-    }
-}
-
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -43,12 +24,6 @@
     .switchers {
         flex-flow: column;
         align-items: center;
-    }
-
-    .label {
-        opacity: 0;
-        transition: opacity 0.2s;
-        width: 0;
     }
 }
 

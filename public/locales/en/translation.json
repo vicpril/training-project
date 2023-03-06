@@ -1,12 +1,12 @@
 {
-  "about": "About",
+  "О сайте": "About",
   "collapse": "",
   "decrement": "Decrement",
   "error-heppened": "Some error on page",
   "increment": "Increment",
   "language": "Language",
   "login": "Login",
-  "main": "Main",
+  "Главная": "Main",
   "page-not-found": "Page not found",
   "perezagruzit-stranicu": "Reload page",
   "short-lang": "En",
@@ -19,5 +19,7 @@
   "Перевод": "Translate",
   "Тестовый пример": "Test example",
   "Форма авторизации": "Authorization",
-  "Язык": "English"
+  "Язык": "English",
+  "Профиль": "Profile"
+
 }

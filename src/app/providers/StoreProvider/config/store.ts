@@ -7,7 +7,7 @@ import type { ReduxStoreWithManager, StateSchema } from './StateSchema'
 export const createReduxStore = (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-): ReduxStoreWithManager => {
+) => {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,

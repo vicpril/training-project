@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { RoutePaths } from 'shared/config/routerConfig'
+import { useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
-import AboutIcon from 'shared/assets/icons/about-20-20.svg'
-import MainIcon from 'shared/assets/icons/main-20-20.svg'
+
 import cls from './Sidebar.module.scss'
+import { SidebarItemList } from '../../model/items'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 interface SidebarProps {
   className?: string
@@ -17,10 +15,16 @@ interface SidebarProps {
 export const Sidebar = (props: SidebarProps) => {
   const { className } = props
 
-  const { t } = useTranslation()
-
   const [collapsed, setCollapsed] = useState(false)
   const toggleSidebar = () => setCollapsed((prev) => !prev)
+
+  const itemsList = useMemo(() => SidebarItemList.map((item) => (
+    <SidebarItem
+      item={item}
+      collapsed={collapsed}
+      key={item.path}
+    />
+  )), [collapsed])
 
   return (
     <div
@@ -28,14 +32,7 @@ export const Sidebar = (props: SidebarProps) => {
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
       <div className={cls.items}>
-        <AppLink to={RoutePaths.main} theme="secondary" className={cls.item}>
-          <div className={cls.icon}><MainIcon /></div>
-          <div className={cls.label}>{t('main')}</div>
-        </AppLink>
-        <AppLink to={RoutePaths.about} theme="secondary" className={cls.item}>
-          <div className={cls.icon}><AboutIcon /></div>
-          <div className={cls.label}>{t('about')}</div>
-        </AppLink>
+        {itemsList}
       </div>
 
       <Button
