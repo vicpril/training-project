@@ -10,6 +10,8 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { memo, useCallback } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useNavigate } from 'react-router-dom'
+import { RoutePaths } from 'shared/config/routerConfig'
 import cls from './LoginForm.module.scss'
 import { loginActions, loginReducer } from '../../model/slices/loginSlice'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
@@ -40,12 +42,15 @@ const LoginForm = memo((props: LoginFormProps) => {
     dispatch(loginActions.setLoginPassword(value))
   }, [dispatch])
 
+  const navigate = useNavigate()
+
   const onSubmitClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }))
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess?.()
+      navigate(RoutePaths.about)
     }
-  }, [dispatch, onSuccess, password, username])
+  }, [dispatch, navigate, onSuccess, password, username])
 
   return (
     <DynamicModuleLoader

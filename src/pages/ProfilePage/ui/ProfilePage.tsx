@@ -1,5 +1,8 @@
-import { profileReducer } from 'entities/Profile'
+import { ProfileCard, profileReducer } from 'entities/Profile'
+import { fetchProfileData } from 'entities/Profile/model/services/fetchProfileData/fetchProfileData'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -16,10 +19,16 @@ interface ProfilePageProps {
 
 function ProfilePage({ className }: ProfilePageProps) {
   const { t } = useTranslation('profile')
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchProfileData())
+  }, [dispatch])
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames('', {}, [className])}>
-        {t('stranica-profilya')}
+        <ProfileCard />
       </div>
     </DynamicModuleLoader>
   )

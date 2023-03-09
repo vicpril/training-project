@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { AxiosInstance } from 'axios'
 import type { CounterSchema } from 'entities/Counter'
 import { ProfileSchema } from 'entities/Profile'
 import type { UserSchema } from 'entities/User'
 import type { LoginSchema } from 'features/AuthByUsername'
+import { NavigateFunction } from 'react-router-dom'
 import { createReducerManager } from './reducerManager'
 import { createReduxStore } from './store'
 
@@ -26,3 +28,14 @@ export interface ReduxStoreWithManager extends ReduxStoreType {
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+
+export interface ThunkApiArgs {
+  api: AxiosInstance,
+  navigation: NavigateFunction
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T
+  extra: ThunkApiArgs,
+  state: StateSchema
+}
