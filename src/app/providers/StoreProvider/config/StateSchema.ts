@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { EnhancedStore } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
 import type { CounterSchema } from 'entities/Counter'
 import { ProfileSchema } from 'entities/Profile'
@@ -12,7 +12,7 @@ export interface StateSchema {
   counter: CounterSchema,
   user: UserSchema,
 
-  // асинзпронные
+  // асинхронные
   loginForm?: LoginSchema
   profile?: ProfileSchema
 }
@@ -21,7 +21,7 @@ export type StateSchemaKey = keyof StateSchema
 
 export type ReducerManager = ReturnType<typeof createReducerManager>
 
-type ReduxStoreType = ReturnType<typeof configureStore<StateSchema>>
+type ReduxStoreType = EnhancedStore<StateSchema>
 
 export interface ReduxStoreWithManager extends ReduxStoreType {
   reducerManager: ReducerManager
@@ -29,13 +29,13 @@ export interface ReduxStoreWithManager extends ReduxStoreType {
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 
-export interface ThunkApiArgs {
+export interface ThunkExtraArgs {
   api: AxiosInstance,
-  navigation: NavigateFunction
+  navigate?: NavigateFunction
 }
 
 export interface ThunkConfig<T> {
   rejectValue: T
-  extra: ThunkApiArgs,
-  state: StateSchema
+  extra: ThunkExtraArgs,
+  state: StateSchema,
 }

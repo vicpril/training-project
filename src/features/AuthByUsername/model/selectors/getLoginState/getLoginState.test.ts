@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
 import { initialLodinFormState } from '../../slices/loginSlice'
 import { getLoginState } from './getLoginState'

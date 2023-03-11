@@ -3,7 +3,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import axios, { AxiosStatic } from 'axios'
 
 type ActionCreatorType<Result, Args, RejectedValue>
-  = (args: Args) => AsyncThunkAction<Result, Args, RejectedValue>
+  = (args: Args) => AsyncThunkAction<Result, Args, { rejectValue: RejectedValue }>
 
 jest.mock('axios')
 
